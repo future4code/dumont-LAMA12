@@ -1,5 +1,6 @@
 import express from "express";
 import { UserController } from "../UserController";
+import { BandController } from "../BandController"
 
 
 export const userRouter = express.Router();
