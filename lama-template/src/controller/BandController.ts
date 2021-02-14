@@ -30,16 +30,8 @@ export class BandController {
           
           if(!input.band || !input.genre || !input.member){
             throw new Error("Favor preencher todos os campos")
-        } 
-
-          console.log(input)
-          const data = await bandBusiness.createBand(input, token);
-          console.log(data.role)
-          
-          
-          
-          
-         
+        }
+           await bandBusiness.createBand(input, token); 
  
           res.status(200).send("banda adicionada com sucesso");
  

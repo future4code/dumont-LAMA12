@@ -12,25 +12,28 @@ export class BandBusiness {
    ) { }
 
 
-    async createBand(user: BandInputDTO, token:string) {
+    async createBand(band: BandInputDTO, token:string) {
     
     const data = this.authenticator.getData(token)
-    console.log(user)
     if(data.role !=="ADMIN"){
-      throw new Error("apenas administradores tem acesso a essa funcção")
+      throw new Error("apenas administradores tem acesso a essa função")
    }
     const id: string = this.idGenerator.generate()
 
     await this.BandDatabase.insertBand(
         id,
-        user.band,
-        user.member,
-        user.genre
+        band.band,
+        band.member,
+        band.genre
     ); 
     return data
  }
 
  async findBand(id: string) {
+
+   if(!id){
+      throw new Error("favor digitar id")
+   }
 
     const result = await this.BandDatabase.selectBand(
        id
