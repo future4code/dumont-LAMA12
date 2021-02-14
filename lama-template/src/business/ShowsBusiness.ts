@@ -62,7 +62,7 @@ export class ShowsBusiness {
   async getShowsByDay(week_day: string, token: string) {
     try {
       const userRole = this.authenticator.getData(token).role
-      if (!token || userRole !== "ADMIN") {
+      if (!token || !userRole) {
         throw new CustomError(501, "User unauthorized!")
       }
 
