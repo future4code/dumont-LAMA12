@@ -16,7 +16,7 @@ export class UserBusiness {
 
    async createUser(user: UserInputDTO) {
 
-      const id = this.idGenerator.generate();
+      const id = this.idGenerator.generate(); 
 
       const hashPassword = await this.hashManager.hash(user.password);
 
