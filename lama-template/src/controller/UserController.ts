@@ -8,7 +8,7 @@ import { UserDatabase } from "../data/UserDatabase";
 
 const userBusiness = new UserBusiness(
    new IdGenerator(),
-   new HashManager,
+   new HashManager(),
    new Authenticator(),
    new UserDatabase()
 );
